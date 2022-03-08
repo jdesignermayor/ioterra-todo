@@ -14,7 +14,7 @@ export const TaskCard = ({ id, title, summary, isCompleted }: Task) => {
                     <input defaultChecked={isChecked} id="isCompleted" onChange={() => onToggleChange(id)} aria-describedby="isCompleted" type="checkbox" name="isCompleted" className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" />
                 </div>
             </div>}
-            <div className={`flex gap-2  items-start justify-start w-full ${isCompleted && 'line-through'}`}>
+            <div className={`flex gap-2  items-start justify-start w-full ${isChecked && 'line-through'}`}>
                 <p className="px-2 bg-purple-300 rounded-md ">{title}</p>
                 <p>{summary}</p>
             </div>
