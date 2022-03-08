@@ -11,7 +11,7 @@ export const Todos = () => {
         <div className="grid justify-center w-full pt-12 px-6 gap-4">
             <p className="font-bold text-3xl">Welcome to ioterra todo </p>
             <FilterField />
-            <div className="w-full grid gap-2 divide-y-2">
+            <div className="w-full grid gap-2 ">
                 <p>Lastest tasks</p>
                 {tasksList?.length > 0 ? <>
                     {tasksList?.map((props: Task) => {
