@@ -11,7 +11,7 @@ export const Login = () => {
         <div className="flex flex-col items-center justify-center pt-5 px-6 w-full ">
             <div className="grid w-full gap-2 items-center pt-10 md: w-7/12">
                 <p className="text-4xl font bold">Sign in</p>
-                <p>Select your prefered role</p>
+                <p>select your preferred role</p>
                 {roleList?.map((role: Role) => {
                     return <ButtonRole key={role.id} {...role} />
                 })}
