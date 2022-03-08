@@ -32,6 +32,10 @@ export const useTaskCreate = () => {
     });
   };
 
+  const onNavToHome = () => {
+    nav("/todos");
+  };
+
   const onToggleChange = () => {
     setIsCompleted(!isCompleted);
   };
@@ -49,5 +53,6 @@ export const useTaskCreate = () => {
     onToggleChange,
     onHandleChange,
     onHandleSubmit,
+    onNavToHome,
   };
 };

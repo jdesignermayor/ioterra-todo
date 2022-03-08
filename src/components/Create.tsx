@@ -1,14 +1,16 @@
 import React from "react"
 import { useTaskCreate } from "../hooks/useTaskCreate";
 
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+
 export const Create = () => {
-  const { onHandleSubmit, onHandleChange, onToggleChange, isSubmitting } = useTaskCreate();
+  const { onHandleSubmit, onHandleChange, onToggleChange, onNavToHome, isSubmitting } = useTaskCreate();
 
   return (
     <div >
-      <form onSubmit={onHandleSubmit} className="flex flex-col items-center justify-center pt-5 px-6 w-full">
+      <form onSubmit={onHandleSubmit} className="flex flex-col items-center justify-center pt-5 px-4 md:px-20 xl:px-40">
         <div className="grid gap-3 w-full md:w-3/5">
-          <p className="font-bold text-2xl">Create task </p>
+          <p className="font-bold text-2xl flex gap-2 items-center" ><button type="button" onClick={onNavToHome}><BsFillArrowLeftCircleFill /></button> Create task </p>
           <div className="grid gap-2">
             <input className="p-2 bg-slate-50 border rounded-md w-full" placeholder="Title task" type="text" id="title" name="title" onChange={onHandleChange} required />
           </div>
