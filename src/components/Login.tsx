@@ -15,7 +15,7 @@ export const Login = () => {
                 {roleList?.map((role: Role) => {
                     return <ButtonRole key={role.id} {...role} />
                 })}
-                <a target="_blank" href="https://www.linkedin.com/in/joseacevedodev/">Created with ❤️ by <span className=" text-violet-500">JoseAcevedo</span></a>
+                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/joseacevedodev/">Created with ❤️ by <span className=" text-violet-500">JoseAcevedo</span></a>
             </div>
 
         </div>
