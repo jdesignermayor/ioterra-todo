@@ -13,6 +13,8 @@ export const useEdit = (id: any) => {
   const { updateTask, getTaskById } = useSupabase();
   const [formData, setFormData] = useReducer(formReducer, {});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isFormReady, setIsFormReady] = useState(true);
+
   const [detail, setDetail] = useState<any>(null);
   const nav = useNavigate();
 
@@ -37,6 +39,10 @@ export const useEdit = (id: any) => {
       }
     });
   };
+  
+  const onNavToHome = () => {
+    nav("/todos");
+  };
 
   const assignValues = (data: any) => {
     const detailState = data[0];
@@ -52,6 +58,7 @@ export const useEdit = (id: any) => {
     });
 
     setDetail(detailState);
+    setIsFormReady(false);
   };
 
   useEffect(() => {
@@ -65,8 +72,10 @@ export const useEdit = (id: any) => {
   return {
     onHandleChange,
     onHandleSubmit,
+    onNavToHome,
     assignValues,
     isSubmitting,
+    isFormReady,
     detail,
   };
 };
