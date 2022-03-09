@@ -15,9 +15,7 @@ export const useTaskCard = (isCompleted: any) => {
   const onToggleChange = async (id: any) => {
     const newChecked = !isChecked;
     setIsChecked(newChecked);
-    updateTaskActive(id, newChecked).then((res) => {
-      console.log(res);
-    });
+    updateTaskActive(id, newChecked);
   };
 
   const openEdit = (id: any) => {
