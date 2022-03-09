@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Task } from "../interfaces/supabase.interface";
 import { supabase } from "../supabaseClient";
 
@@ -7,6 +7,7 @@ const TASK_TABLE = "tasks";
 export const useSupabase = () => {
   const [roleList, setRoleList] = useState<any>([]);
   const [tasksList, setTasksList] = useState<any>([]);
+  const isMounted = useRef(true);
 
   const addTask = ({ title, summary, isCompleted }: Task) => {
     return supabase
@@ -46,20 +47,28 @@ export const useSupabase = () => {
 
   const getRole = async () => {
     const { data } = await supabase.from("role");
-    setRoleList(data);
+    if (isMounted.current) {
+      setRoleList(data);
+    }
   };
 
   const getTasks = async () => {
     const { data } = await supabase
       .from(TASK_TABLE)
       .select("id,title,summary,isCompleted");
-    setTasksList(data);
+
+    if (isMounted.current) {
+      setTasksList(data);
+    }
   };
 
- 
   useEffect(() => {
     getRole();
     getTasks();
+
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
 
   return {
