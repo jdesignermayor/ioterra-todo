@@ -33,7 +33,7 @@ export const Todos = () => {
             <p className="font-bold text-3xl">👋 Welcome to ioterra Todo </p>
             <FilterField parentCallback={handleSearch} parentCallbackClear={clearSearch} />
             <div className="grid gap-2 ">
-                <p>Lastest tasks</p>
+                <p>Latest tasks</p>
                 {customTask?.length > 0 ? <>
                     {customTask?.map((props: Task) => {
                         return <TaskCard key={props.id} {...props} />
