@@ -10,8 +10,8 @@ export const TaskCard = ({ id, title, summary, isCompleted }: Task) => {
     return (
         <div className="flex justify-between bg-slate-50 p-4 shadow hover:bg-slate-100 items-center gap-2">
             {role === 'EMPLOYEE' && <div className="flex items-start">
-                <div className="flex items-center h-5">
-                    <input defaultChecked={isChecked} id="isCompleted" onChange={() => onToggleChange(id)} aria-describedby="isCompleted" type="checkbox" name="isCompleted" className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" />
+                <div className="flex items-center h-5 ">
+                    <input defaultChecked={isChecked} id="isCompleted" onChange={() => onToggleChange(id)} aria-describedby="isCompleted" type="checkbox" name="isCompleted" className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 cursor-pointer" />
                 </div>
             </div>}
             <div className={`flex gap-2  items-start justify-start w-full ${isChecked && 'line-through'}`}>
