@@ -33,6 +33,13 @@ export const useSupabase = () => {
       .match({ id });
   };
 
+  const getTasksByQuery = async (query: string) => {
+    return supabase
+      .from("tasks")
+      .select("*")
+      .like("title, summary", `%${query}%`);
+  };
+
   const getTaskById = (id: any) => {
     return supabase.from(TASK_TABLE).select("*").eq("id", id);
   };
@@ -49,6 +56,7 @@ export const useSupabase = () => {
     setTasksList(data);
   };
 
+ 
   useEffect(() => {
     getRole();
     getTasks();
@@ -59,6 +67,7 @@ export const useSupabase = () => {
     tasksList,
     addTask,
     getTaskById,
+    getTasksByQuery,
     updateTask,
     updateTaskActive,
   };
