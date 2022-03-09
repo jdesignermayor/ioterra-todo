@@ -20,11 +20,12 @@ export const useSupabase = () => {
       .single();
   };
 
-  const updateTaskActive = (id: number, newIsCompleted: boolean) => {
-    return supabase
+  const updateTaskActive = async (id: number, newIsCompleted: boolean) => {
+    const { data, error } = await supabase
       .from(TASK_TABLE)
       .update({ isCompleted: newIsCompleted })
       .match({ id });
+    return data;
   };
 
   const updateTask = ({ id, title, summary }: any) => {
