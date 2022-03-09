@@ -38,7 +38,7 @@ export const Todos = () => {
                     {customTask?.map((props: Task) => {
                         return <TaskCard key={props.id} {...props} />
                     })}
-                </> : <p>You dot have a taks</p>}
+                </> : <p>You don't have a tasks</p>}
             </div>
         </div>
     )
