@@ -5,11 +5,14 @@ import { FilterField } from './FilterField';
 import { TaskCard } from './TaskCard';
 
 export const Todos = () => {
-    const { tasksList, getTasksByQuery } = useSupabase();
+    const { tasksList } = useSupabase();
     const [customTask, setCustomTask] = useState([]);
+    const [inputValue, setInputValue] = useState<string>();
 
     const handleSearch = async (event: any) => {
         const value = event.target.value.toLowerCase();
+        setInputValue(inputValue);
+
         if (value) {
             const result = customTask?.filter((newData: any) => {
                 return Object.values(newData).join('').toLowerCase().includes(value.toLowerCase())
@@ -31,7 +34,7 @@ export const Todos = () => {
     return (
         <div className="grid justify-center w-full pt-12 px-6 gap-4">
             <p className="font-bold text-3xl">👋 Welcome to ioterra Todo </p>
-            <FilterField parentCallback={handleSearch} parentCallbackClear={clearSearch} />
+            <FilterField parentCallback={handleSearch} parentCallbackClear={clearSearch} value={inputValue} />
             <div className="grid gap-2 ">
                 <p>Latest tasks</p>
                 {customTask?.length > 0 ? <>
